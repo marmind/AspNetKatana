@@ -47,5 +47,10 @@ namespace Microsoft.Owin.Security.Notifications
         /// <remarks>This is the redirect_uri that was sent in the id_token + code OpenIdConnectRequest.</remarks>
         [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "user controlled, not necessarily a URI")]
         public string RedirectUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="AuthenticationProperties"/>
+        /// </summary>
+        public AuthenticationProperties Properties { get; set; }
     }
 }
