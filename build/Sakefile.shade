@@ -1,14 +1,14 @@
 
 var PROJECT='Katana'
 var AUTHORS='Microsoft'
-var SHIP='${Version(4, 0, 0, "rtm")}'
+var SHIP='${Version(4, 0, 1, "rtm")}'
 var DEV='${Version(0, 31, 0, "pre")}'
 set FINAL_MILESTONE='${true}'
-var AZUREAD_VERSION='5.2.0'
+var AZUREAD_VERSION='5.3.0'
 var AZUREAD_SUFFIX=''
 var VERSION='${SHIP.VERSION}'
 var FULL_VERSION='${SHIP.FULL_VERSION}'
-var EULA='https://www.microsoft.com/en-us/web/webpi/eula/net_library_eula_ENU.htm'
+var EULA='https://raw.githubusercontent.com/aspnet/AspNetKatana/v4.0.1/LICENSE.txt'
 var PROJECT_URL='https://github.com/aspnet/AspNetKatana/'
 var TAGS='Microsoft OWIN Katana'
 
@@ -207,7 +207,7 @@ var signing='${new List<string>()}'
           File.Copy(initialFile, inputFile, true);
           copySigned = and(copySigned, ()=>File.Copy(outputFile, finalFile, true));
         }
-    build projectFile='BuildServer.targets' configuration='Release' extra='/t:DoSignBinaries "/p:Sign=Sign;BranchName=Dev"'
+    build projectFile='BuildServer.targets' configuration='Release' extra='/t:SignArtifacts "/p:Sign=Sign;BranchName=Dev"'
 
   directory delete='${PACKAGE_DIR}'
   copy sourceDir='${BUILD_DIR}' outputDir='${PACKAGE_DIR}'
